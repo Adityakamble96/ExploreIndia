@@ -3,175 +3,242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<style>
-    body {
-  background-color: rgb(0, 0, 0);
-}
+    <title>Incredible India Tours | Premium Travel Experiences</title>
 
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 
-</style>
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background: #0b0c0d;
+            color: #e8e8e8;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            background: rgba(15, 15, 15, 0.9) !important;
+            backdrop-filter: blur(12px);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: #00eaff !important;
+        }
+
+        .hero {
+            height: 92vh;
+            background: url('images/india-hero.jpg') center/cover no-repeat fixed;
+            position: relative;
+        }
+
+        .hero::after {
+            content:"";
+            position:absolute;
+            inset:0;
+            background:rgba(0,0,0,0.6);
+        }
+
+        .hero-content {
+            position:relative;
+            z-index:2;
+            text-align:center;
+            top:50%;
+            transform:translateY(-50%);
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            text-shadow: 0px 0px 30px rgba(0,255,255,0.4);
+        }
+
+        .hero-btn {
+            margin-top: 25px;
+            padding: 15px 40px;
+            background: #00eaff;
+            color: #000;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            animation: pulse 2.6s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow:0 0 12px rgba(0,255,255,0.4);}
+            50% { box-shadow:0 0 25px rgba(0,255,255,0.9);}
+            100% { box-shadow:0 0 12px rgba(0,255,255,0.4);}
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.7rem;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+
+        .section-title span {
+            color: #00eaff;
+        }
+
+        .region-card, .dest-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 18px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: .3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .region-card:hover, .dest-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,255,255,0.2);
+        }
+
+        .region-card img, .dest-card img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 14px;
+        }
+
+        footer {
+            background: #050505;
+            text-align: center;
+            padding: 15px;
+            color: #aaa;
+            font-size: .9rem;
+        }
+
+        /* Floating Button */
+        #floating-btn {
+            position: fixed;
+            bottom: 35px;
+            right: 35px;
+            background: #00eaff;
+            color: #000;
+            padding: 14px 26px;
+            border-radius: 40px;
+            font-weight: 700;
+            display: none;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 0 25px rgba(0,255,255,0.4);
+        }
+        #floating-btn:hover {
+            transform: scale(1.05);
+            background: #00f7ff;
+        }
+
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand" href="#">Explore India</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#regions">Regions</a></li>
-        <li class="nav-item"><a class="nav-link" href="#destinations">Destinations</a></li>
-        <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-      </ul>
+<!-- Floating Explore Button -->
+<div id="floating-btn" onclick="document.querySelector('#regions').scrollIntoView({behavior:'smooth'})">
+    Explore Tours
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Incredible India <span style="color:white;">Tours</span></a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a href="#home" class="nav-link px-3">Home</a></li>
+                <li class="nav-item"><a href="#regions" class="nav-link px-3">Tour Regions</a></li>
+                 <li class="nav-item"><a href="#contact" class="nav-link px-3">Contact</a></li>
+            </ul>
+        </div>
     </div>
-  </div>
 </nav>
-<!--this tells about the nav bar means it is type of upper bar  -->
 
-<section id="home" class="text-center p-5 bg-grey text-white">
-  <h2 class="display-2">Welcome to Explore India</h2>
-  <p class="lead">Discover the beauty, culture, and heritage of India</p>
-  <a href="#regions" class="btn btn-primary">Start Exploring</a>
+<!-- HERO SECTION -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1>Premium Tours Across India</h1>
+        <p style="font-size:1.3rem;">Experience curated travel packages tailored by experts</p>
+        <a href="#regions" class="hero-btn">View Tour Packages</a>
+    </div>
 </section>
-<!--Regions NEWS card means box --> 
-<section id="regions" class="container py-5 text-white">
-  <h2 id="regi" class="text-center mb-4">Regions of India</h2>
 
-  <div class="row">
+<!-- REGIONS SECTION -->
 
-    <!-- North India -->
-    <div class="col-md-4 mb-3">
-      <div class="card">
-        <img src="images/north-india.jpg" class="card-img-top" alt="North India">
-        <div class="card-body ">
-            <a href="north-india.html">
-            <h5 class="card-title text-black"> North India</h5>
-            <p class="card-text text-black">Known for mountains, temples, and historic monuments.</p>
-          </a>
+
+<section id="regions" class="container py-5">
+    <h2 class="section-title">Our Tour <span>Regions</span></h2>
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <div class="region-card">
+                <img src="images/north-india.jpg">
+                <h4 class="mt-3">Northern India</h4>
+                <p>Himalayan tours, adventure trips & cultural heritage packages.</p>
+                <a href="C:\Project\ExploreIndia\ExploreIndia\north-india.html" class="btn btn-outline-info mt-2">View Packages</a>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <!-- East India -->
-    <div class="col-md-4 mb-3">
-      <div class="card">
-        <img src="images/east-india.jpg" class="card-img-top" alt="East India">
-        <div class="card-body">
-          <a href="east india.html">
-         <h2 class="card-tittle text-black"> East India </h2>
-          <p class="card-text">Known for mountains, temples, and historic monuments.</p>
-          </a>
+        <div class="col-md-4">
+            <div class="region-card">
+                <img src="images/east-india.jpg">
+                <h4 class="mt-3">Eastern India</h4>
+                <p>Tea gardens, wildlife tours, tribal culture & festival packages.</p>
+                <a href="C:\Project\ExploreIndia\ExploreIndia\east india.html" class="btn btn-outline-info mt-2">View Packages</a>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <!-- West India -->
-    <div class="col-md-4 mb-3">
-      <div class="card">
-        <img src="images/Beautiful beach of kokan.jpg" class="card-img-top" alt="India Gate">
-        <div class="card-body">
-          <a href="west-india.html">
-               <h5 class="card-title"> kokan</h5>
-          <p class="card-text">Konkan is a beautiful coastal region along the western shoreline of India, stretching across Maharashtra,
-             Goa, and Karnataka..</p>
-            </a> 
+        <div class="col-md-4">
+            <div class="region-card">
+                <img src="images/Beautiful beach of kokan.jpg">
+                <h4 class="mt-3">Western India</h4>
+                <p>Coastal holidays, heritage forts, deserts & city tours.</p>
+                <a href="C:\Project\ExploreIndia\ExploreIndia\west-india.html" class="btn btn-outline-info mt-2">View Packages</a>
+            </div>
         </div>
-      </div>
+
     </div>
-
-  </div> <!-- END ROW -->
-
 </section>
 
 
-<!--Destinations Section-->
-<section id="destinations" class="container py- text-white">
-  <h2 class="text-center mb-4">Top Tourist Destinations</h2>
 
-  <div class="row">
+<!-- CONTACT SECTION -->
+<section id="contact" class="py-5" style="background:#0a0a0a;">
+    <h2 class="section-title">Get in <span>Touch</span></h2>
 
-    <!-- Card 1 -->
-    <div class="col-md-4 mb-3">
-      <div class="card">
-        <img src="images/Ladakh.jpg" class="card-img-top">
-        <div class="card-body">
-          <h5>Ladakh</h5>
-          <p>The place of dreams.</p>
+    <div class="container">
+        <div class="mx-auto" style="max-width: 800px; text-align:center;">
+            <iframe 
+                src="https://form.typeform.com/to/tq5Fv3wb"
+                style="border:none;width:100%;height:420px;border-radius:12px;">
+            </iframe>
         </div>
-      </div>
     </div>
-
-    <!-- Card 2 -->
-    <div class="col-md-4 mb-3">
-      <div class="card">
-        <img src="images/tajmahal.jpg" class="card-img-top">
-        <div class="card-body">
-          <h5>Taj Mahal</h5>
-          <p>The symbol of love in Agra.</p>
-        </div>
-      </div>
-    </div>
-       
-    <div class="col-md-4 mb-3">
-      <div class="card">
-        <img src="images/kolhapur.jpg" class="card-img-top"text-white>
-        <div class="card-body">
-          <h5>Rankala lake </h5>
-          <p>Kolhapur famous place is in MAHARASTRA .</p>
-        </div>
-      </div>
-    </div>
-
-  </div> <!-- End row -->
 </section>
 
-<section id="gallery" class="container py-5 text-white">
-  <h2 class="text-center mb-4">Gallery</h2>
-
-  <div class="row">
-    <div class="col-md-3 mb-3">
-      <img src="images/gallery1.jpg" class="img-fluid rounded shadow">
-    </div>
-
-    <div class="col-md-3 mb-3">
-      <img src="images/mumbai.jpg" class="img-fluid rounded shadow">
-    </div>
-
-    <div class="col-md-3 mb-3">
-      <img src="images/dehli.jpg" class="img-fluid rounded shadow">
-    </div>
-
-    <div class="col-md-3 mb-3">
-      <img src="images/jaipur.jpg" class="img-fluid rounded shadow">
-    </div>
-    <!-- Add more images -->
-  </div>
-</section>
-
-<section id="contact" class="bg-dark text-white p-5">
-  <div class="container">
-   <h2 class="text-center">CALL FOR YOUR TRIP  </h2>
-    <h3>Contact Us</h3>
-
-    <form class="btn btn-primary mt-3 mb-3 ms-3 me-3"> 
-      <input class="form-control mb-3" type="text" placeholder="Your Name">
-      <input class="form-control mb-3" type="email" placeholder="Email">
-      <textarea class="form-control mb-3" placeholder="Message"></textarea>
-      <button class="btn btn-light">Submit</button>
-    </form>
-  </div>
-</section>
-
-<footer class="bg-secondary text-center text-white p-3">
-  © 2025 Explore India | All Rights Reserved
+<!-- FOOTER -->
+<footer>
+    © 2025 Incredible India Tours | Professional Travel Experience
 </footer>
+
+<script>
+window.addEventListener('scroll', () => {
+    const btn = document.getElementById('floating-btn');
+    btn.style.display = window.scrollY > 250 ? 'block' : 'none';
+});
+</script>
+
 </body>
 </html>

@@ -1,93 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-9">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>west India </title>
+    <title>West India</title>
 
     <style>
+        /* Attractive animated background */
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #0f0f0f; /* soft warm background */
+            font-family: Arial, sans-serif;
+            background: radial-gradient(circle at top, #1e1e1e, #000) fixed;
+            color: white;
+            overflow-x: hidden;
+            position: relative;
         }
 
+        /* Floating particles effect */
+        body::before {
+            content: "";
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+            opacity: 0.22;
+            animation: float 12s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-250px); }
+        }
+
+        /* Main card container */
         .container {
             width: 80%;
-            margin: 40px auto;
-            background: rgb(46, 58, 70);
-            padding: 20px 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(33, 32, 32, 0.1);
+            margin: 60px auto;
+            background: rgba(255, 255, 255, 0.07);
+            padding: 25px 35px;
+            border-radius: 12px;
+            backdrop-filter: blur(7px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
         }
 
         h1 {
             text-align: center;
-            color: #ffffff; /* deep red */
+            font-size: 2.6rem;
             font-weight: bold;
+            text-transform: uppercase;
+            color: #0dcaf0;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            color: #ffd9a0;
+            margin-top: 20px;
+            font-size: 1.7rem;
         }
 
         p {
             font-size: 18px;
-            line-height: 1.6;
-            color: #faf5f5;
+            line-height: 1.7;
+            color: #eeeeee;
         }
 
         .center-img {
             display: block;
-            margin: 20px auto;
-            width: 320px;
-            border-radius: 8px;
+            margin: 25px auto;
+            width: 330px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255,255,255,0.15);
         }
 
         .bold {
-            font-weight: bold;
+            font-weight: 700;
+            color: #ffd9a0;
         }
 
+        /* Pricing Section */
+        .pricing-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .price-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(8px);
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.15);
+            width: 280px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 0 25px rgba(0,0,0,0.4);
+            transition: 0.4s ease;
+        }
+
+        .price-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 35px rgba(255, 255, 255, 0.2);
+        }
+
+        .price-card h3 {
+            color: #f8d5a4;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: #ffcc8a;
+            margin-bottom: 12px;
+        }
+
+        .price-card ul {
+            list-style: none;
+            padding-left: 0;
+            color: #f3e4d5;
+        }
+
+        .price-card ul li {
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .price-card ul li::before {
+            content: "✔ ";
+            color: #ffe7c3;
+        }
+
+        /* Back Button */
         a {
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 25px;
             font-size: 18px;
-            color: #ffffff;
+            color: #0dcaf0;
             text-decoration: none;
+            border: 1px solid #0dcaf0;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: 0.3s ease;
         }
 
         a:hover {
-            text-decoration: underline;
+            background: #0dcaf0;
+            color: black;
+            box-shadow: 0 0 15px rgba(0, 200, 255, 0.5);
         }
     </style>
 </head>
+
 <body>
-     
 
-    <div class="container text-white">
+    <div class="container">
 
-        <h1>Explore west India</h1>
+        <h1>Explore West India</h1>
 
-        <img src="images/Beautiful beach of kokan.jpg" alt="North India Image" class="center-img">
+        <img src="images/Beautiful beach of kokan.jpg" alt="Konkan Beach" class="center-img">
 
         <p>
-           Konkan is a stunning coastal belt along the western coast of India, stretching through the states of Maharashtra, Goa, and Karnataka.
-            Known for its natural beauty, cultural richness,
-            and peaceful environment, Konkan is one of India’s most scenic regions.
-        <p>
-            Konkan has a strong cultural identity marked by:
-
-Traditional Konkani and Marathi customs
-
-Festivals like Ganesh Chaturthi (celebrated grandly)
-
-Folk arts like Dashavatara and Koli Dance
-        <p>
-           Konkan has a tropical climate:
-
-Cool winters
-
-Hot summers
-
-Heavy monsoon rainfall, which makes the region lush and vibrant
+            Konkan is a stunning coastal belt along the western coast of India, stretching through Maharashtra, Goa, and Karnataka. 
+            Known for its <span class="bold">natural beauty</span>, rich traditions, ancient temples, fresh seafood, 
+            and peaceful coastal lifestyle, it is one of the most scenic regions in the country.
         </p>
+
+        <h2>Culture of Konkan</h2>
+        <ul>
+            <li>Traditional Konkani & Marathi customs</li>
+            <li>Grand celebration of Ganesh Chaturthi</li>
+            <li>Famous folk arts: Dashavatara, Koli Dance</li>
+        </ul>
+
+        <h2>Climate</h2>
+        <ul>
+            <li>Pleasant winters</li>
+            <li>Warm summers</li>
+            <li>Heavy monsoon with lush green scenery</li>
+              
+                <a href="kolhapur.html">Kolhapur</a>  
+        </ul>
+
+        
+
 
         <a href="index.html">← Back to Home</a>
 
